@@ -1,8 +1,8 @@
-                                                                Cypress Cucumber Framework
+# Cypress Cucumber Framework
 This Cypress Cucumber Framework is developed using the following features:
-Page Object design pattern
-BDD - Cucumber Framework
-Impressive HTML report generation
-Multi-Browser Testing Support
+1. Page Object design pattern
+2. BDD - Cucumber Framework
+3. Impressive HTML report generation
+4. Multi-Browser Testing Support
 
                                                                 
