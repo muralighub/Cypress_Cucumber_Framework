@@ -2,19 +2,19 @@
 
 class AcctCreationPage {
 
-    constructor() {
-        this.createacct_link = "Create an Account"
-        this.firstname = "[id='firstname']"
-        this.lastname = "[id='lastname']"
-        this.email = "[id='email_address']"
-        this.password = "[id='password']"
-        this.confirmpassword = "[id='password-confirmation']"
-        this.createacct_btn = "button[title='Create an Account'] span"
-        this.acctcreationtext = "div[data-bind='html: $parent.prepareMessageForHtml(message.text)']"
-        this.accountconfirmmsg = "Thank you for registering with Main Website Store." 
-        this.signoutdropdown = "div[class='panel header'] button[class='action switch']"  
-        this.singout_btn = "div[aria-hidden='false'] li[data-label='or'] a"     
-    }
+    acctCreation_Locators = {
+        createacct_link: "Create an Account",
+        firstname: "[id='firstname']",
+        lastname: "[id='lastname']",
+        email: "[id='email_address']",
+        password: "[id='password']",
+        confirmpassword: "[id='password-confirmation']",
+        createacct_btn: "button[title='Create an Account'] span",
+        acctcreationtext: "div[data-bind='html: $parent.prepareMessageForHtml(message.text)']",
+        accountconfirmmsg: "Thank you for registering with Main Website Store.",
+        signoutdropdown: "div[class='panel header'] button[class='action switch']",
+        singout_btn: "div[aria-hidden='false'] li[data-label='or'] a"
+    };
 
     goToAccountCreationPage(url) {
         cy.visit(url)
@@ -33,11 +33,8 @@ class AcctCreationPage {
         cy.get(this.createacct_btn).click()
     }
 
-    confirmAccountCreation() {
-        cy.get(this.acctcreationtext).then(function (textele) {
-            const confText = textele.text()
-            expect(confText).to.equal( "Thank you for registering with Main Website Store.")
-        })
+    confirmAccountCreation() { 
+        cy.get(this.acctCreation_Locators.acctcreationtext).should('have.text', this.acctCreation_Locators.accountconfirmmsg);        
     }
 
     clickSignOut(){
