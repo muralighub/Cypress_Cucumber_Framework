@@ -18,28 +18,28 @@ class AcctCreationPage {
 
     goToAccountCreationPage(url) {
         cy.visit(url)
-        cy.contains(this.createacct_link).click()         
+        cy.contains(this.acctCreation_Locators.createacct_link).click()
     }
 
     enterAccountDetails(firstname, lastname, email, password, confpassword) {
-        cy.get(this.firstname).type(firstname)
-        cy.get(this.lastname).type(lastname)
-        cy.get(this.email).type(email)
-        cy.get(this.password).type(password)
-        cy.get(this.confirmpassword).type(confpassword)
+        cy.get(this.acctCreation_Locators.firstname).type(firstname)
+        cy.get(this.acctCreation_Locators.lastname).type(lastname)
+        cy.get(this.acctCreation_Locators.email).type(email)
+        cy.get(this.acctCreation_Locators.password).type(password)
+        cy.get(this.acctCreation_Locators.confirmpassword).type(confpassword)
     }
 
     clickOnCreateAccount() {
-        cy.get(this.createacct_btn).click()
+        cy.get(this.acctCreation_Locators.createacct_btn).click()
     }
 
-    confirmAccountCreation() { 
-        cy.get(this.acctCreation_Locators.acctcreationtext).should('have.text', this.acctCreation_Locators.accountconfirmmsg);        
+    confirmAccountCreation() {
+        cy.get(this.acctCreation_Locators.acctcreationtext).should('have.text', this.acctCreation_Locators.accountconfirmmsg);
     }
 
-    clickSignOut(){
-        cy.get(this.signoutdropdown).click();
-        cy.get(this.singout_btn).click()
+    clickSignOut() {
+        cy.get(this.acctCreation_Locators.signoutdropdown).click();
+        cy.get(this.acctCreation_Locators.singout_btn).click()
     }
 
 }
